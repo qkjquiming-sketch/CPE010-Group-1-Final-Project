@@ -1,6 +1,8 @@
 #ifndef QUEUE_ARR_H
 #define QUEUE_ARR_H
 #include <iostream>
+#include <ctime>
+#include <string>
 
 template<typename T>
 class queueArr{
@@ -179,6 +181,7 @@ void queueArr<T>::Display(){
     }
 
     int current = q_front;
+
     for(size_t i = 0; i < q_size; ++i){
         std::cout << "Appointment #" << q_array[current].number << "\n";
         std::cout << "Name: " << q_array[current].name << "\n";

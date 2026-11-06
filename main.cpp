@@ -1,6 +1,8 @@
 #include <iostream>
 #include "doubly_ll.h"
 #include "queue.h"
+#include <ctime>
+#include <string>
 
 const int max_size = 100;
 
@@ -16,6 +18,14 @@ int main(){
    Appointment appointment;
    int choice2;
    int where;
+
+   time_t timestamp;
+   time(&timestamp);
+
+   struct tm* datetime = localtime(&timestamp);
+
+   char current_date[50];
+   strftime(current_date, 50, "%D", datetime);
 
    queueArr<Appointment> queue(max_size);
 
@@ -67,13 +77,15 @@ int main(){
         dllDisplay(head);
         
         std::cout << "\nWalk-In Appointments:\n";
+        std::cout << "Date Today: " << current_date << "\n";
         queue.Display(); 
         
         break;
-                
+
     }
     case 3:
         int queuechoice;
+
         do{
         std::cout << "\nManage Walk-In Customers\n";
         std::cout << "[1] Queue Customer\n";
@@ -81,29 +93,40 @@ int main(){
         std::cout << "[3] View Queue Size\n";
         std::cout << "[4] Go back\n";
         
-        std::cout<< "\nEnter your choice(1-6): "; 
+        std::cout<< "\nEnter your choice(1-4): "; 
         std::cin >> queuechoice;
 
 
         switch(queuechoice){
             case 1: {
+                Appointment walk_in;
+
+                time_t timestamp;
+                time(&timestamp);
+                struct tm* datetime = localtime(&timestamp);
+                strftime(walk_in.time, 50, "%r", datetime);
+
+                std::cout << "Date Today: " << current_date << "\n";
+
                 std::cout<< "Enter appointment number: ";
-                std::cin>> appointment.number;
+                std::cin>> walk_in.number;
                 std::cin.ignore();
-                std::cout<<"Enter Name: "; std::cin.getline(appointment.name, 50);
-                std::cout<<"Enter time: "; std::cin.getline(appointment.time, 20);
+                std::cout<<"Enter Name: "; std::cin.getline(walk_in.name, 50);
+                std::cout << "Time: " << walk_in.time << "\n";
                 
-                queue.Enqueue(appointment);
+                queue.Enqueue(walk_in);
                 break;
             }
             case 2:
                 std::cout << "\nServing customer front in queue\n\n";
                 if (!queue.Empty()) {
-                    Appointment appointment = queue.Front();
+                    Appointment walk_in = queue.Front();
 
-                    std::cout << "Appointment #" << appointment.number << "\n";
-                    std::cout << "Name: " << appointment.name << "\n";
-                    std::cout << "Time: " << appointment.time<< "\n";
+                    std::cout << "Date Today: " << current_date << "\n";
+
+                    std::cout << "Appointment #" << walk_in.number << "\n";
+                    std::cout << "Name: " << walk_in.name << "\n";
+                    std::cout << "Time: " << walk_in.time << "\n";
 
                     queue.Dequeue();
 
