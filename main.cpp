@@ -142,6 +142,6 @@ int main(){
         std::cout << "\nInvalid Choice! Please try again.\n";
     }
 
-   } while(choice != 5);
+   } while(choice != 6);
    return 0;
 }
