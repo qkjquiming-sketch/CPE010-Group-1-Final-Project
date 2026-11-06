@@ -2,6 +2,7 @@
 #include "doubly_ll.h"
 #include "queue.h"
 #include "selectionSort.h"
+#include "binarySearch.h"
 
 const int max_size = 100;
 
@@ -28,9 +29,10 @@ int main(){
         std::cout<< "[3] Queue Walk-In Customers\n";
         std::cout<< "[4] Customer Information\n";
         std::cout<< "[5] Delete Appointment\n";
-        std::cout<< "[6] Exit\n";
+        std::cout<< "[6] Seach Appointment\n"
+        std::cout<< "[7] Exit\n";
 
-    std::cout<< "\nEnter your choice(1-6): "; 
+    std::cout<< "\nEnter your choice(1-7): "; 
     std::cin>> choice;
     
 switch (choice){
@@ -124,7 +126,20 @@ switch (choice){
             } 
             break;
         
-        case 6:
+        case 6: {
+            char searchDate[50];
+            char searchTime[50];
+
+            std::cout << "\nSearch Appointment\n";
+            std::cin.ignore();
+            std::cout << "Enter date (MM/DD/YYYY): "; std::cin.getline(searchDate, 50);
+            std::cout << "Enter time: "; std::cin.getline(searchTime, 50);
+ 
+            dllSearch(head, searchDate, searchTime);
+            break;
+        }
+
+        case 7:
             std::cout << "\nExiting the Program...\n";
             break;
         
@@ -132,6 +147,6 @@ switch (choice){
             std::cout << "\nInvalid Choice! Please try again.\n";
         }
 
-    } while(choice != 6);
+    } while(choice != 7);
     return 0;
 }
