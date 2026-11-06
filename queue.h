@@ -25,6 +25,7 @@ class queueArr{
 
     void Enqueue(T value);
     void Dequeue();
+    void Display();
 
      //copy constructor
     queueArr(const queueArr& other);
@@ -168,6 +169,22 @@ queueArr<T>& queueArr<T> :: operator=(const queueArr &other){
 
     return *this;
 
+}
+
+template<typename T>
+void queueArr<T>::Display(){
+    if(Empty()){
+        std::cout << "No walk-in customers in queue.\n";
+        return;
+    }
+
+    int current = q_front;
+    for(size_t i = 0; i < q_size; ++i){
+        std::cout << "Appointment #" << q_array[current].number << "\n";
+        std::cout << "Name: " << q_array[current].name << "\n";
+        std::cout << "Time: " << q_array[current].time << "\n";
+        current = (current + 1) % q_capacity;
+    }
 }
 
 #endif

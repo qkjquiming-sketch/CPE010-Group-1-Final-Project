@@ -132,4 +132,22 @@ void dllDeleteEnd(DoubleList<T>** head) {
   delete current; 
 } 
 
+template<typename T>
+void dllDisplay(DoubleList<T>* currentNode) {
+    if (currentNode == nullptr) {
+        std::cout << "No scheduled appointments\n";
+        return;
+    }
+ 
+    while (currentNode != nullptr) {
+
+        std::cout << "Appointment #" << currentNode->data.number << "\n";
+        std::cout << "Name: " << currentNode->data.name << "\n";
+        std::cout << "Date: " << currentNode->data.date << "\n";
+        std::cout << "Time: " << currentNode->data.time << "\n";
+                  
+        currentNode = currentNode->next;
+    }
+}
+
 #endif

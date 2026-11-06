@@ -22,7 +22,7 @@ int main(){
    DoubleList<Appointment>* head = nullptr;
    do {
     std::cout<< "\n======== Dental Patient Appointment Scheduling and Customer Service Management System ========\n";
-    std::cout<< "[1] Add Appointment\n";
+    std::cout<< "[1] Schedule an Appointment\n";
     std::cout<< "[2] View Appointments\n";
     std::cout<< "[3] Queue Walk-In Customers\n";
     std::cout<< "[4] Customer Information\n";
@@ -34,7 +34,7 @@ int main(){
     
     switch (choice){
     case 1:
-        std::cout << "\nAdding Appointment\n";
+        std::cout << "\nScheduled Appointment\n";
         std::cout<< "Enter appointment number: ";
         std::cin>> appointment.number;
         std::cin.ignore();
@@ -60,9 +60,18 @@ int main(){
     } 
     break;
 
-    case 2:
+    case 2: {
         std::cout << "\nViewing Appointments...\n";
+
+        std::cout << "\nScheduled Appointments:\n";
+        dllDisplay(head);
+        
+        std::cout << "\nWalk-In Appointments:\n";
+        queue.Display(); 
+        
         break;
+                
+    }
     case 3:
         int queuechoice;
         do{
