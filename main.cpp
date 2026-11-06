@@ -5,7 +5,7 @@
 #include "queue.h"
 #include "selectionSort.h"
 #include "binarySearch.h"
-#include "stack.h" // Added stack header
+#include "stack.h"
 
 const int max_size = 100;
 
