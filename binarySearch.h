@@ -83,9 +83,9 @@ void dllSearch(DoubleList<T>* head, const char* date, const char* time) {
 
     std::cout << "Appointment found!\n" << "Appontment #" << result->data.number << std::endl;
 
-    std::cout << "Name: " << result->data.name << std::endl;
-    std::cout << "Date: " << result->data.date << std::endl;
-    std::cout << "Time: " << result->data.time << std::endl;
+    std::cout << "Name: " << result->data.name << std::endl << "\n";
+    std::cout << "Date: " << result->data.date << std::endl << "\n";
+    std::cout << "Time: " << result->data.time << std::endl << "\n";
 }
 
 #endif

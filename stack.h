@@ -53,24 +53,3 @@ public:
         return arr[topIndex];
     }
 };
-
-int main() {
-    BookingUndoStack undoStack;
-
-    // Simulating user actions in the booking system
-    std::cout << "--- Recording Booking Changes ---\n";
-    undoStack.Push("Created appointment for Patient: Alice Smith (Oct 15)");
-    undoStack.Push("Rescheduled appointment time to 2:00 PM");
-    undoStack.Push("Added special note: First-time consultation");
-
-    std::cout << "\nLatest change (Top): " << undoStack.Top() << "\n\n";
-
-    // Simulating the Undo process
-    std::cout << "--- Performing Undo Operations ---\n";
-    undoStack.Pop(); // Undoes the special note addition
-    undoStack.Pop(); // Undoes the time change
-
-    std::cout << "\nCurrent latest change after undos (Top): " << undoStack.Top() << "\n";
-
-    return 0;
-}
