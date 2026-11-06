@@ -33,7 +33,7 @@ void dllTraversal(DoubleList<T>* currentNode){
     std::cout << "The list is empty";
     return;
   }
- 
+
   
   DoubleList<T>* tail;
   std::cout << "FORWARD\n";
@@ -138,7 +138,10 @@ void dllDisplay(DoubleList<T>* currentNode) {
         std::cout << "No scheduled appointments\n";
         return;
     }
- 
+
+    selectionSort(currentNode);
+
+    DoubleList<T>* temp = currentNode;
     while (currentNode != nullptr) {
 
         std::cout << "Appointment #" << currentNode->data.number << "\n";
