@@ -4,7 +4,7 @@
 #include <cstring>
 
 template <typename T>
-class DoubleList
+class DoubleList;
 
 
 template<typename T>
@@ -13,7 +13,7 @@ DoubleList<T>* binarySearch(DoubleList<T>* head, const char* date, const char* t
         return nullptr;
     }
 
-    DoubleList<T>* start = head
+    DoubleList<T>* start = head;
     DoubleList<T>* end = nullptr;
 
     while(start != end) {
@@ -54,7 +54,7 @@ DoubleList<T>* binarySearch(DoubleList<T>* head, const char* date, const char* t
 
         // Search the right half
         else if (compareDate > 0) {
-            start = mid->next
+            start = mid->next;
         }
         
         // Search the left half
